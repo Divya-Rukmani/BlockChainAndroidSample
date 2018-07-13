@@ -24,16 +24,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         txt_result=(TextView) findViewById(R.id.txt_result);
         //Creating and validating blocks
-        Log.d(TAG,"\nAdding first block");
+        Log.d(TAG,"Adding first block");
         addBlock(new Block("Transferring funds 1...", "0"));
 
-        Log.d(TAG,"\nAdding second block");
+        Log.d(TAG,"Adding second block");
         addBlock(new Block("Transferring funds 2...",blockchain.get(blockchain.size()-1).hash));
 
-        Log.d(TAG,"\nAdding third block");
+        Log.d(TAG,"Adding third block");
         addBlock(new Block("Transferring funds 3...",blockchain.get(blockchain.size()-1).hash));
 
-        Log.d(TAG,"\nBlockchain is Valid: " + isChainValid());
+        Log.d(TAG,"Blockchain is Valid: " + isChainValid());
         //Returns the blockchain in JSONFORMAT
         blockchainJson = Utils.getJson(blockchain);
         Log.d(TAG,blockchainJson);
