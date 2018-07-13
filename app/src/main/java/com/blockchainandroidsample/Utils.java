@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Utils {
     public static ArrayList<Block> blockchain = new ArrayList<Block>();
     public static int difficulty = 3;
+    public  static String TAG= Utils.class.getSimpleName();
 
     //Applies Sha256 to a string
     public static String applySha256(String input){
@@ -52,17 +53,17 @@ public class Utils {
             current_block = blockchain.get(i);
             previous_block = blockchain.get(i-1);
             if(!current_block.hash.equals(current_block.calculateHash()) ){
-                Log.d("Block","Current hashes are not equal");
+                Log.d(TAG,"Current hashes are not equal");
                 return false;
             }
             if(!previous_block.hash.equals(current_block.previousHash) ) {
-                Log.d("Block","Previous hash and current has are not equal");
+                Log.d(TAG,"Previous hash and current has are not equal");
                 return false;
             }
 
             //check if hash whether has applied mining
             if(!current_block.hash.substring( 0, difficulty).equals(hashTarget)) {
-                Log.d("Block","This block hasn't been mined");
+                Log.d(TAG,"This block hasn't been mined");
                 return false;
             }
         }
